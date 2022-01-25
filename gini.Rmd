@@ -1,0 +1,24 @@
+---
+title: "Notebook_Gini index"
+author: "HelenLiu"
+date: "01/25/2021"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(ineq)
+####计算分层抽样权重
+x1 <- c(0,150,200) #样本数
+n <- sum(x1) #抽样总量
+x2 <- c(100000,500000,550000) #实际总人口数
+frequency <- x2 /sum(x2) 
+weight <- frequency*n #调整后的每层样本数
+weight
+###Gini
+Gini(x2,x1)
+Gini(weight)
+```
